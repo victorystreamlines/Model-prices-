@@ -27,6 +27,8 @@
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
@@ -626,15 +628,30 @@
                         placeholder="اكتب رسالتك هنا..."></textarea>
             </div>
             <div class="text-center">
-              <button type="submit" class="gaming-btn" id="submitBtn">
+              <button type="submit" class="gaming-btn mb-3" id="submitBtn">
                 إرسال الرسالة
               </button>
+              <div class="text-xs text-gray-400">
+                <p id="altEmailText">أو يمكنك إرسال رسالة مباشرة إلى:</p>
+                <a href="mailto:victorystreamlines@gmail.com" class="text-cyan-400 hover:text-cyan-300 transition-colors">
+                  victorystreamlines@gmail.com
+                </a>
+              </div>
             </div>
           </form>
           
           <!-- Success Message -->
           <div id="successMessage" class="hidden mt-6 p-4 bg-green-600 bg-opacity-20 border border-green-400 rounded-lg text-green-400 text-center">
-            <p id="successText">تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.</p>
+            <div class="flex items-center justify-center mb-2">
+              <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="font-bold" id="successTitle">تم فتح برنامج البريد الإلكتروني</span>
+            </div>
+            <p id="successText" class="text-sm mb-3">يرجى إكمال إرسال الرسالة من برنامج البريد الإلكتروني الخاص بك لضمان وصولها إلينا.</p>
+            <button onclick="copyEmailDetails()" class="text-xs text-cyan-300 hover:text-cyan-100 underline transition-colors" id="copyBtn">
+              نسخ تفاصيل الرسالة (في حالة عدم عمل برنامج البريد)
+            </button>
           </div>
         </div>
       </div>
@@ -655,6 +672,9 @@
   </footer>
 
   <script>
+    // Global variable to store last form data for copying
+    let lastFormData = {};
+    
     // Particles animation
     function createParticles() {
       const particlesContainer = document.getElementById('particles');
@@ -702,23 +722,104 @@
       const subject = document.getElementById('subject').value;
       const message = document.getElementById('message').value;
       
-      // Create mailto URL
-      const body = `From: ${name} (${email})\n\nMessage:\n${message}`;
-      const mailtoUrl = `mailto:victorystreamlines@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      // Store form data globally for potential copying
+      lastFormData = { name, email, subject, message };
       
-      // Open email client
-      window.location.href = mailtoUrl;
+      // Validate form
+      if (!name || !email || !subject || !message) {
+        alert(document.documentElement.lang === 'ar' ? 
+          'يرجى ملء جميع الحقول المطلوبة' : 
+          'Please fill in all required fields');
+        return;
+      }
       
-      // Show success message
-      document.getElementById('successMessage').classList.remove('hidden');
+      // Create formatted email body
+      const emailBody = `
+Contact Form Submission - Model Metrics Website
+
+Name: ${name}
+Email: ${email}
+Subject: ${subject}
+
+Message:
+${message}
+
+---
+This message was sent from the Model Metrics website contact form.
+Date: ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}
+      `.trim();
       
-      // Reset form
-      document.getElementById('contactForm').reset();
+      // Create mailto URL with proper formatting
+      const mailtoUrl = `mailto:victorystreamlines@gmail.com?subject=${encodeURIComponent('Contact Form: ' + subject)}&body=${encodeURIComponent(emailBody)}`;
       
-      // Hide success message after 5 seconds
-      setTimeout(() => {
-        document.getElementById('successMessage').classList.add('hidden');
-      }, 5000);
+      // Try to open email client
+      try {
+        // Use window.open instead of window.location.href for better compatibility
+        const emailWindow = window.open(mailtoUrl, '_blank');
+        
+        // Check if popup was blocked
+        if (!emailWindow || emailWindow.closed || typeof emailWindow.closed == 'undefined') {
+          // Fallback: try with window.location
+          window.location.href = mailtoUrl;
+        }
+        
+        // Show success message
+        document.getElementById('successMessage').classList.remove('hidden');
+        
+        // Reset form
+        document.getElementById('contactForm').reset();
+        
+        // Hide success message after 8 seconds
+        setTimeout(() => {
+          document.getElementById('successMessage').classList.add('hidden');
+        }, 8000);
+        
+      } catch (error) {
+        console.error('Error opening email client:', error);
+        
+        // Show manual copy option
+        copyEmailDetails();
+      }
+    }
+    
+    // Function to copy email details to clipboard
+    function copyEmailDetails() {
+      const { name, email, subject, message } = lastFormData;
+      
+      const copyText = `To: victorystreamlines@gmail.com
+Subject: Contact Form: ${subject}
+
+Contact Form Submission - Model Metrics Website
+
+Name: ${name}
+Email: ${email}
+Subject: ${subject}
+
+Message:
+${message}
+
+---
+This message was sent from the Model Metrics website contact form.
+Date: ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
+      
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(copyText).then(() => {
+          alert(document.documentElement.lang === 'ar' ? 
+            'تم نسخ محتوى الرسالة إلى الحافظة! يرجى لصقها في برنامج البريد الإلكتروني وإرسالها إلى:\nvictorystreamlines@gmail.com' : 
+            'Email content copied to clipboard! Please paste it in your email client and send to:\nvictorystreamlines@gmail.com');
+        }).catch(() => {
+          showManualCopyAlert(copyText);
+        });
+      } else {
+        showManualCopyAlert(copyText);
+      }
+    }
+    
+    // Function to show manual copy alert
+    function showManualCopyAlert(copyText) {
+      alert(document.documentElement.lang === 'ar' ? 
+        'يرجى نسخ التفاصيل التالية وإرسالها إلى victorystreamlines@gmail.com:\n\n' + copyText : 
+        'Please copy the following details and send to victorystreamlines@gmail.com:\n\n' + copyText);
     }
 
     // Enhanced language toggle
@@ -773,7 +874,10 @@
           subjectLabel: 'الموضوع',
           messageLabel: 'الرسالة',
           submitBtn: 'إرسال الرسالة',
-          successText: 'تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.',
+          successTitle: 'تم فتح برنامج البريد الإلكتروني',
+          successText: 'يرجى إكمال إرسال الرسالة من برنامج البريد الإلكتروني الخاص بك لضمان وصولها إلينا.',
+          copyBtn: 'نسخ تفاصيل الرسالة (في حالة عدم عمل برنامج البريد)',
+          altEmailText: 'أو يمكنك إرسال رسالة مباشرة إلى:',
           footerText: '© 2025 — تقييم النماذج الذكية بواسطة نايف طلال العيسى. جميع الحقوق محفوظة.'
         },
         en: {
@@ -817,7 +921,10 @@
           subjectLabel: 'Subject',
           messageLabel: 'Message',
           submitBtn: 'Send Message',
-          successText: 'Your message has been sent successfully! We will contact you soon.',
+          successTitle: 'Email Client Opened',
+          successText: 'Please complete sending the message from your email client to ensure it reaches us.',
+          copyBtn: 'Copy message details (if email client doesn\'t work)',
+          altEmailText: 'Or you can send a message directly to:',
           footerText: '© 2025 — AI Models Evaluation by Naif Talal Al-Isa. All rights reserved.'
         }
       };
