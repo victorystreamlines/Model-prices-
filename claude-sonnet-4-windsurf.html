@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Sonnet 4 (Windsurf) - تحليل مفصل | موقع تحليل نماذج الذكاء الاصطناعي</title>
+  <meta name="description" content="تحليل شامل ومفصل لنموذج Claude Sonnet 4 عبر منصة Windsurf المجانية - الأداء الجيد بدون تكلفة">
+  <meta name="keywords" content="Claude Sonnet 4, Windsurf, AI models, free AI, artificial intelligence, تحليل الذكاء الاصطناعي, مجاني">
+  <meta name="author" content="نايف طلال العيسى">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Claude Sonnet 4 (Windsurf) - النموذج المجاني">
+  <meta property="og:description" content="تحليل شامل لنموذج Claude Sonnet 4 عبر منصة Windsurf المجانية">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTnsmCAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVFiFtZddaBxVFMd/587M7iabNI1Ja2pSG1urtVpLW6qCH4iKD4Ig+CD4gQ8+iA8+iOCDDz5Y8UHwQRBBfBB8EHxQfBB8EHzwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfFA==">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --neon-blue: #00ffff;
+      --neon-purple: #8a2be2;
+      --neon-green: #39ff14;
+      --neon-teal: #20b2aa;
+      --dark-bg: #0a0a0f;
+      --card-bg: rgba(15, 23, 42, 0.8);
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #0a0a0f 0%, #1a2e1a 50%, #0f3f2e 100%);
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .gaming-header {
+      font-family: 'Orbitron', monospace;
+      background: linear-gradient(45deg, var(--neon-green), var(--neon-teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(57, 255, 20, 0.5);
+    }
+
+    .cyber-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(57, 255, 20, 0.3);
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(57, 255, 20, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cyber-card:hover {
+      border-color: var(--neon-green);
+      box-shadow: 0 0 40px rgba(57, 255, 20, 0.3);
+      transform: translateY(-5px);
+    }
+
+    .cyber-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(57, 255, 20, 0.1), transparent);
+      transition: left 0.5s;
+    }
+
+    .cyber-card:hover::before {
+      left: 100%;
+    }
+
+    .neon-button {
+      background: linear-gradient(45deg, #39ff14, #20b2aa);
+      border: none;
+      border-radius: 25px;
+      padding: 12px 24px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(57, 255, 20, 0.3);
+    }
+
+    .neon-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(57, 255, 20, 0.5);
+    }
+
+    .performance-meter {
+      width: 100%;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .performance-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #ff6b6b, #ffd93d, #39ff14);
+      border-radius: 10px;
+      transition: width 1s ease;
+      position: relative;
+    }
+
+    .performance-fill::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .lang-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: rgba(57, 255, 20, 0.1);
+      border: 1px solid var(--neon-green);
+      border-radius: 25px;
+      padding: 8px 16px;
+      color: var(--neon-green);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .lang-toggle:hover {
+      background: rgba(57, 255, 20, 0.2);
+      box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .nav-breadcrumb {
+      background: rgba(57, 255, 20, 0.1);
+      padding: 10px 20px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(57, 255, 20, 0.3);
+    }
+
+    .free-badge {
+      background: linear-gradient(135deg, #39ff14, #00ff7f);
+      border-radius: 20px;
+      padding: 8px 16px;
+      color: black;
+      font-weight: bold;
+      display: inline-block;
+      animation: pulse-free 2s infinite;
+    }
+
+    @keyframes pulse-free {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(57, 255, 20, 0.6); }
+    }
+
+    .limitation-card {
+      background: linear-gradient(135deg, rgba(255, 193, 7, 0.2), rgba(255, 152, 0, 0.2));
+      border: 2px solid #ffc107;
+    }
+
+    @media (max-width: 768px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .lang-toggle {
+        top: 10px;
+        right: 10px;
+        font-size: 14px;
+        padding: 6px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="lang-toggle" onclick="toggleLanguage()" id="languageToggle">
+    English
+  </button>
+
+  <div class="container mx-auto px-4 py-8">
+    <!-- Navigation Breadcrumb -->
+    <div class="nav-breadcrumb">
+      <a href="index.html" class="text-green-400 hover:text-green-300 transition-colors">🏠 الصفحة الرئيسية</a>
+      <span class="mx-2 text-gray-400">></span>
+      <span class="text-white" id="breadcrumbText">Claude Sonnet 4 (Windsurf)</span>
+    </div>
+
+    <!-- Logo and Header -->
+    <div class="text-center mb-12">
+      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQ1IiBzdHJva2U9IiMzOWZmMTQiIHN0cm9rZS13aWR0aD0iMyIgZmlsbD0icmdiYSg1NywyNTUsMjAsMC4xKSIvPgo8cGF0aCBkPSJNMzAgMzBMMzUgMjVMNDAgMzBMNDUgMjVMNTAgMzBMNTUgMjVMNjAgMzBMNjUgMjVMNzAgMzAiIHN0cm9rZT0iIzM5ZmYxNCIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CjxyZWN0IHg9IjI1IiB5PSI0MCIgd2lkdGg9IjgiIGhlaWdodD0iMzAiIGZpbGw9IiNmZjZiNmIiLz4KPHJlY3QgeD0iMzUiIHk9IjM1IiB3aWR0aD0iOCIgaGVpZ2h0PSIzNSIgZmlsbD0iIzRlY2RjNCIvPgo8cmVjdCB4PSI0NSIgeT0iNDUiIHdpZHRoPSI4IiBoZWlnaHQ9IjI1IiBmaWxsPSIjZmZkOTNkIi8+CjxyZWN0IHg9IjU1IiB5PSIzMCIgd2lkdGg9IjgiIGhlaWdodD0iNDAiIGZpbGw9IiMzOWZmMTQiLz4KPHJlY3QgeD0iNjUiIHk9IjM4IiB3aWR0aD0iOCIgaGVpZ2h0PSIzMiIgZmlsbD0iIzhhMmJlMiIvPgo8L3N2Zz4K" alt="ModelMetrics Logo" class="w-20 h-20 mx-auto mb-6">
+      <h1 class="gaming-header text-5xl font-bold mb-4" id="mainTitle">
+        Claude Sonnet 4 (Windsurf)
+      </h1>
+      <div class="flex justify-center items-center mb-6 space-x-4">
+        <span class="free-badge" id="freeBadge">🎉 مجاني 100%</span>
+        <p class="text-xl text-gray-300" id="mainSubtitle">
+          أداء جيد بدون أي تكلفة مالية
+        </p>
+      </div>
+    </div>
+
+    <!-- Free Advantage Highlight -->
+    <div class="cyber-card p-8 mb-8" style="border-color: #39ff14; background: linear-gradient(135deg, rgba(57, 255, 20, 0.2), rgba(0, 255, 127, 0.1))">
+      <div class="text-center">
+        <div class="text-6xl mb-4">💚</div>
+        <h2 class="text-3xl font-bold mb-4 text-green-400" id="freeAdvantageTitle">الميزة الكبرى: مجاني تماماً!</h2>
+        <p class="text-xl text-gray-300 mb-6" id="freeAdvantageDesc">
+          احصل على قوة Claude Sonnet 4 بدون دفع أي مبلغ مالي
+        </p>
+        <div class="grid md:grid-cols-3 gap-6 text-center">
+          <div>
+            <div class="text-3xl mb-2">💰</div>
+            <p class="font-bold text-green-400" id="saveMoney">وفر المال</p>
+            <p class="text-sm text-gray-400" id="saveMoneyDesc">$0 شهرياً مقابل $16-32</p>
+          </div>
+          <div>
+            <div class="text-3xl mb-2">🚀</div>
+            <p class="font-bold text-green-400" id="quickStart">ابدأ فوراً</p>
+            <p class="text-sm text-gray-400" id="quickStartDesc">لا حاجة لكرت ائتماني</p>
+          </div>
+          <div>
+            <div class="text-3xl mb-2">🔓</div>
+            <p class="font-bold text-green-400" id="noLimits">بدون قيود</p>
+            <p class="text-sm text-gray-400" id="noLimitsDesc">استخدم بدون حدود</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Model Analysis -->
+    <div class="cyber-card p-8 mb-8">
+      <h2 class="text-3xl font-bold mb-6 text-green-400" id="overviewTitle">📊 نظرة عامة على النموذج</h2>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4 text-purple-400" id="basicInfoTitle">المعلومات الأساسية</h3>
+          <div class="space-y-4">
+            <div class="flex justify-between items-center">
+              <span id="modelNameLabel">اسم النموذج:</span>
+              <span class="text-green-400 font-bold">Claude Sonnet 4</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span id="platformLabel">المنصة:</span>
+              <span class="text-green-400 font-bold">Windsurf</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span id="priceLabel">السعر الشهري:</span>
+              <span class="text-green-400 font-bold text-xl">مجاني 🎉</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span id="ratingLabel">التقييم العام:</span>
+              <span class="text-yellow-400 font-bold">89%</span>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-bold mb-4 text-purple-400" id="performanceTitle">مؤشرات الأداء</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-2">
+                <span id="overallScoreLabel">التقييم العام</span>
+                <span class="text-yellow-400 font-bold">89%</span>
+              </div>
+              <div class="performance-meter">
+                <div class="performance-fill" style="width: 89%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span id="sweScoreLabel">اختبار SWE-bench</span>
+                <span class="text-yellow-400 font-bold">72.7%</span>
+              </div>
+              <div class="performance-meter">
+                <div class="performance-fill" style="width: 72.7%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span id="valueScoreLabel">القيمة مقابل السعر</span>
+                <span class="text-green-400 font-bold">100%</span>
+              </div>
+              <div class="performance-meter">
+                <div class="performance-fill" style="width: 100%; background: linear-gradient(90deg, #39ff14, #00ff7f)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature Analysis -->
+    <div class="cyber-card p-8 mb-8">
+      <h2 class="text-3xl font-bold mb-6 text-green-400" id="featuresTitle">🔍 تحليل المميزات</h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div class="text-4xl mb-3">🧠</div>
+          <h3 class="text-lg font-bold mb-2 text-purple-400" id="thinkingLabel">التفكير المنطقي</h3>
+          <div class="text-green-400 text-2xl mb-2">✅</div>
+          <p class="text-sm text-gray-300" id="thinkingDesc">
+            قدرات جيدة في التحليل والتفكير المنطقي
+          </p>
+        </div>
+        
+        <div class="text-center">
+          <div class="text-4xl mb-3">🔤</div>
+          <h3 class="text-lg font-bold mb-2 text-purple-400" id="regexLabel">معالجة Regex</h3>
+          <div class="text-green-400 text-2xl mb-2">✅</div>
+          <p class="text-sm text-gray-300" id="regexDesc">
+            يتعامل بكفاءة مع التعبيرات النمطية
+          </p>
+        </div>
+        
+        <div class="text-center">
+          <div class="text-4xl mb-3">🎯</div>
+          <h3 class="text-lg font-bold mb-2 text-purple-400" id="smartLogicLabel">المنطق الذكي</h3>
+          <div class="text-red-400 text-2xl mb-2">❌</div>
+          <p class="text-sm text-gray-300" id="smartLogicDesc">
+            يحتاج تحسين في المنطق المتقدم
+          </p>
+        </div>
+        
+        <div class="text-center">
+          <div class="text-4xl mb-3">📋</div>
+          <h3 class="text-lg font-bold mb-2 text-purple-400" id="structuredLabel">المخرجات المنظمة</h3>
+          <div class="text-red-400 text-2xl mb-2">❌</div>
+          <p class="text-sm text-gray-300" id="structuredDesc">
+            نفس مشكلة التنظيم في النسخ الأخرى
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Performance vs Price Analysis -->
+    <div class="cyber-card p-8 mb-8">
+      <h2 class="text-3xl font-bold mb-6 text-green-400" id="performanceAnalysisTitle">📈 تحليل الأداء مقابل السعر</h2>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-green-900 bg-opacity-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-4 text-green-400" id="whyFreeTitle">لماذا مجاني؟</h3>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start" id="freeReason1">
+              <span class="text-green-400 mr-3">✓</span>
+              <span>استراتيجية Windsurf لجذب المستخدمين</span>
+            </li>
+            <li class="flex items-start" id="freeReason2">
+              <span class="text-green-400 mr-3">✓</span>
+              <span>بناء قاعدة مستخدمين كبيرة أولاً</span>
+            </li>
+            <li class="flex items-start" id="freeReason3">
+              <span class="text-green-400 mr-3">✓</span>
+              <span>منافسة المنصات الأخرى</span>
+            </li>
+            <li class="flex items-start" id="freeReason4">
+              <span class="text-green-400 mr-3">✓</span>
+              <span>تمويل من مصادر أخرى</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-yellow-900 bg-opacity-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-4 text-yellow-400" id="performanceTradeTitle">التنازلات في الأداء</h3>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start" id="tradeoff1">
+              <span class="text-yellow-400 mr-3">!</span>
+              <span>أداء أقل بـ 6-10% من المنافسين</span>
+            </li>
+            <li class="flex items-start" id="tradeoff2">
+              <span class="text-yellow-400 mr-3">!</span>
+              <span>بعض القيود في المنطق المتقدم</span>
+            </li>
+            <li class="flex items-start" id="tradeoff3">
+              <span class="text-yellow-400 mr-3">!</span>
+              <span>مخرجات أقل تنظيماً</span>
+            </li>
+            <li class="flex items-start" id="tradeoff4">
+              <span class="text-green-400 mr-3">✓</span>
+              <span>لكن مازال أداءً ممتازاً مجاناً!</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Limitations -->
+    <div class="limitation-card cyber-card p-8 mb-8">
+      <h2 class="text-3xl font-bold mb-6 text-yellow-400" id="limitationsTitle">⚠️ القيود والتحديات</h2>
+      
+      <div class="space-y-6">
+        <div class="bg-yellow-900 bg-opacity-30 p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-4 text-yellow-300" id="currentLimitsTitle">القيود الحالية</h3>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-bold text-red-400 mb-3" id="technicalLimitsTitle">قيود تقنية:</h4>
+              <ul class="space-y-2 text-sm">
+                <li class="flex items-start" id="techLimit1">
+                  <span class="text-red-400 mr-2">•</span>
+                  <span>المنطق الذكي أقل تطوراً</span>
+                </li>
+                <li class="flex items-start" id="techLimit2">
+                  <span class="text-red-400 mr-2">•</span>
+                  <span>تنظيم المخرجات ضعيف</span>
+                </li>
+                <li class="flex items-start" id="techLimit3">
+                  <span class="text-red-400 mr-2">•</span>
+                  <span>استجابة أبطأ أحياناً</span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold text-yellow-400 mb-3" id="futureConcernsTitle">مخاوف مستقبلية:</h4>
+              <ul class="space-y-2 text-sm">
+                <li class="flex items-start" id="futureConcern1">
+                  <span class="text-yellow-400 mr-2">!</span>
+                  <span>قد يصبح مدفوعاً لاحقاً</span>
+                </li>
+                <li class="flex items-start" id="futureConcern2">
+                  <span class="text-yellow-400 mr-2">!</span>
+                  <span>إضافة قيود على الاستخدام</span>
+                </li>
+                <li class="flex items-start" id="futureConcern3">
+                  <span class="text-yellow-400 mr-2">!</span>
+                  <span>تدهور الأداء مع الوقت</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparison with Paid Alternatives -->
+    <div class="cyber-card p-8 mb-8">
+      <h2 class="text-3xl font-bold mb-6 text-green-400" id="comparisonTitle">⚖️ مقارنة مع البدائل المدفوعة</h2>
+      
+      <div class="comparison-grid">
+        <div class="bg-gradient-to-br from-blue-900 to-blue-700 p-6 rounded-lg">
+          <h3 class="text-lg font-bold mb-3 text-blue-300" id="vsCursorTitle">مقابل Cursor ($16.17)</h3>
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between items-center py-2 border-b border-gray-600">
+              <span>السعر:</span>
+              <div class="text-right">
+                <div class="text-green-400 font-bold">Windsurf: مجاني</div>
+                <div class="text-red-300">Cursor: $16.17</div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-gray-600">
+              <span>الأداء:</span>
+              <div class="text-right">
+                <div class="text-yellow-400">Windsurf: 89%</div>
+                <div class="text-green-400">Cursor: 95.5%</div>
+              </div>
+            </div>
+            <div class="bg-gray-800 p-3 rounded mt-4">
+              <p class="text-yellow-400 font-bold text-center" id="cursorComparison">
+                هل 6.5% إضافية تستحق $194 سنوياً؟
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-red-900 to-red-700 p-6 rounded-lg">
+          <h3 class="text-lg font-bold mb-3 text-red-300" id="vsCopilotTitle">مقابل GitHub Copilot+ (~$32.5)</h3>
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between items-center py-2 border-b border-gray-600">
+              <span>السعر:</span>
+              <div class="text-right">
+                <div class="text-green-400 font-bold">Windsurf: مجاني</div>
+                <div class="text-red-300">Copilot+: ~$32.5</div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-gray-600">
+              <span>الأداء:</span>
+              <div class="text-right">
+                <div class="text-yellow-400">Windsurf: 89%</div>
+                <div class="text-green-400">Copilot+: 95%</div>
+              </div>
+            </div>
+            <div class="bg-gray-800 p-3 rounded mt-4">
+              <p class="text-red-400 font-bold text-center" id="copilotComparison">
+                وفر $390 سنوياً مع فرق أداء 6% فقط!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-green-900 to-green-700 p-6 rounded-lg">
+          <h3 class="text-lg font-bold mb-3 text-green-300" id="valueAnalysisTitle">تحليل القيمة</h3>
+          <div class="text-center">
+            <div class="text-4xl mb-4">🏆</div>
+            <p class="font-bold text-green-400 text-lg mb-3" id="bestValueTitle">أفضل قيمة مقابل السعر</p>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span id="annualSavings">توفير سنوي:</span>
+                <span class="text-green-400 font-bold">$194-390</span>
+              </div>
+              <div class="flex justify-between">
+                <span id="performanceDrop">انخفاض الأداء:</span>
+                <span class="text-yellow-400">6-10%</span>
+              </div>
+              <div class="flex justify-between">
+                <span id="worthIt">هل يستحق؟</span>
+                <span class="text-green-400 font-bold">نعم!</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Who Should Use It -->
+    <div class="cyber-card p-8 mb-8">
+      <h2 class="text-3xl font-bold mb-6 text-green-400" id="audienceTitle">🎯 من يناسبه هذا النموذج؟</h2>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-green-900 bg-opacity-30 p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-4 text-green-400" id="perfectForTitle">مثالي لـ:</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start" id="perfect1">
+              <span class="text-green-400 mr-3">✓</span>
+              <span><strong>الطلاب والمتعلمين:</strong> احصل على أداء ممتاز مجاناً</span>
+            </li>
+            <li class="flex items-start" id="perfect2">
+              <span class="text-green-400 mr-3">✓</span>
+              <span><strong>المشاريع الشخصية:</strong> لا حاجة لميزانية</span>
+            </li>
+            <li class="flex items-start" id="perfect3">
+              <span class="text-green-400 mr-3">✓</span>
+              <span><strong>المطورين المبتدئين:</strong> تعلم بدون تكلفة</span>
+            </li>
+            <li class="flex items-start" id="perfect4">
+              <span class="text-green-400 mr-3">✓</span>
+              <span><strong>الشركات الناشئة:</strong> قلل التكاليف في البداية</span>
+            </li>
+            <li class="flex items-start" id="perfect5">
+              <span class="text-green-400 mr-3">✓</span>
+              <span><strong>من يريد التجربة:</strong> اختبر قبل الاستثمار</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-yellow-900 bg-opacity-30 p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-4 text-yellow-400" id="considerAlternativesTitle">فكر في البدائل إذا كنت:</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start" id="alternative1">
+              <span class="text-yellow-400 mr-3">!</span>
+              <span><strong>تحتاج أعلى أداء:</strong> Claude Opus 4 أفضل</span>
+            </li>
+            <li class="flex items-start" id="alternative2">
+              <span class="text-yellow-400 mr-3">!</span>
+              <span><strong>مشاريع تجارية كبيرة:</strong> استثمر في نموذج أقوى</span>
+            </li>
+            <li class="flex items-start" id="alternative3">
+              <span class="text-yellow-400 mr-3">!</span>
+              <span><strong>تحتاج مخرجات منظمة:</strong> جميع النماذج لها هذه المشكلة</span>
+            </li>
+            <li class="flex items-start" id="alternative4">
+              <span class="text-yellow-400 mr-3">!</span>
+              <span><strong>منطق معقد جداً:</strong> النماذج المدفوعة أقوى</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final Recommendation -->
+    <div class="cyber-card p-8 mb-8">
+      <h2 class="text-3xl font-bold mb-6 text-green-400" id="recommendationTitle">🎯 التوصية النهائية</h2>
+      <div class="bg-gradient-to-r from-green-900 to-teal-900 p-6 rounded-lg">
+        <div class="flex items-center mb-4">
+          <div class="text-4xl mr-4">🏆</div>
+          <div>
+            <h3 class="text-xl font-bold text-green-300" id="recTitle">توصية قوية جداً - الخيار الأذكى!</h3>
+            <p class="text-gray-300" id="recRating">تقييم القيمة مقابل السعر: 10/10</p>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <p class="text-gray-300 leading-relaxed" id="recDescription">
+            Claude Sonnet 4 (Windsurf) هو الخيار الأذكى لمعظم المستخدمين. بأداء 89% وتكلفة $0، 
+            يوفر قيمة استثنائية. الفرق 6-10% في الأداء لا يبرر دفع $194-390 سنوياً للمعظم.
+          </p>
+          
+          <div class="bg-green-900 bg-opacity-50 p-4 rounded-lg">
+            <h4 class="font-bold text-green-300 mb-2" id="strategyTitle">الاستراتيجية المثلى:</h4>
+            <ol class="text-gray-300 space-y-2">
+              <li id="strategy1">1. <strong>ابدأ بـ Windsurf</strong> - مجاني وقوي</li>
+              <li id="strategy2">2. <strong>تعلم واكتسب الخبرة</strong> بدون تكلفة</li>
+              <li id="strategy3">3. <strong>انتقل للمدفوع لاحقاً</strong> إذا احتجت أداءً أعلى</li>
+              <li id="strategy4">4. <strong>وفر المال</strong> للأدوات الأخرى المهمة</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between items-center mt-12">
+      <a href="claude-sonnet-4-copilot.html" class="neon-button" id="prevBtn">← النموذج السابق</a>
+      <a href="index.html" class="neon-button" id="homeBtn">🏠 الصفحة الرئيسية</a>
+      <a href="o3-model.html" class="neon-button" id="nextBtn">النموذج التالي →</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-16 py-8 border-t border-gray-700">
+      <div class="mb-4">
+        <h3 class="text-lg font-bold text-green-400 mb-2" id="authorTitle">معلومات الكاتب</h3>
+        <p class="text-gray-300" id="authorName">مؤسس الموقع: نايف طلال العيسى</p>
+        <p class="text-gray-300" id="authorContact">الاتصال: 97835349 | البريد: victorystreamlines@gmail.com</p>
+      </div>
+      <p class="text-gray-400 text-sm" id="copyright">© 2025 موقع تحليل نماذج الذكاء الاصطناعي. جميع الحقوق محفوظة.</p>
+    </footer>
+  </div>
+
+  <script>
+    let currentLang = 'ar';
+    
+    function toggleLanguage() {
+      currentLang = currentLang === 'ar' ? 'en' : 'ar';
+      document.documentElement.lang = currentLang;
+      document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+      
+      const toggleBtn = document.getElementById('languageToggle');
+      toggleBtn.textContent = currentLang === 'ar' ? 'English' : 'العربية';
+      
+      // For now, we'll keep it simple and just toggle the button text
+      // You can add full translations later if needed
+    }
+
+    // Add loading animation
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+    });
+  </script>
+</body>
+</html>

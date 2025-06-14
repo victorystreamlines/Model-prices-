@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>نماذج الذكاء الاصطناعي - تحليل الأسعار والأداء | Model Metrics</title>
+  <meta name="description" content="تحليل شامل ومقارنة تفصيلية لأفضل نماذج الذكاء الاصطناعي من ناحية الأسعار والأداء. اكتشف أفضل نموذج ذكي يناسب احتياجاتك من Claude و GPT و O3.">
+  <meta name="keywords" content="ذكاء اصطناعي, نماذج الذكاء الاصطناعي, مقارنة الأسعار, Claude, GPT, O3, تحليل الأداء, AI Models, Price Comparison">
+  <meta name="author" content="نايف طلال العيسى - Naif Talal Al-Isa">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="Arabic">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="نماذج الذكاء الاصطناعي - تحليل الأسعار والأداء">
+  <meta property="og:description" content="تحليل شامل ومقارنة تفصيلية لأفضل نماذج الذكاء الاصطناعي من ناحية الأسعار والأداء">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://modelmetrics.com">
+  <meta property="og:image" content="logo.svg">
+  
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="نماذج الذكاء الاصطناعي - تحليل الأسعار والأداء">
+  <meta name="twitter:description" content="تحليل شامل ومقارنة تفصيلية لأفضل نماذج الذكاء الاصطناعي">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <style>
+    :root {
+      --primary-blue: #3b82f6;
+      --primary-orange: #f97316;
+      --dark-bg: #0f172a;
+      --card-bg: rgba(15, 23, 42, 0.8);
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --neon-glow: #00ffff;
+      --text-primary: #e2e8f0;
+      --text-secondary: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+      color: var(--text-primary);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Gaming-style background effects */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(0, 255, 255, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Animated particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: var(--neon-glow);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+      50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+    }
+
+    /* Gaming-style glass morphism */
+    .glass-card {
+      backdrop-filter: blur(20px);
+      background: var(--glass-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    /* Header styling */
+    .header {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    /* Logo styling */
+    .logo {
+      filter: drop-shadow(0 4px 8px rgba(0, 255, 255, 0.3));
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      padding: 4px;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 8px 16px rgba(0, 255, 255, 0.5));
+      background: rgba(0, 255, 255, 0.1);
+    }
+
+    /* Gaming-style buttons */
+    .gaming-btn {
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-orange) 100%);
+      border: none;
+      border-radius: 12px;
+      padding: 12px 24px;
+      font-weight: 700;
+      font-family: 'Orbitron', monospace;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .gaming-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .gaming-btn:hover::before {
+      left: 100%;
+    }
+
+    .gaming-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+    }
+
+    /* Glowing text effect */
+    .glow-text {
+      animation: textGlow 2s ease-in-out infinite alternate;
+      font-family: 'Orbitron', monospace;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--neon-glow) 0%, var(--primary-blue) 50%, var(--primary-orange) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    @keyframes textGlow {
+      from { 
+        text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        filter: brightness(1);
+      }
+      to { 
+        text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 40px rgba(59, 130, 246, 0.6);
+        filter: brightness(1.2);
+      }
+    }
+
+    /* Enhanced table styling */
+    .gaming-table {
+      background: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .gaming-table th {
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-orange) 100%);
+      color: white;
+      font-family: 'Orbitron', monospace;
+      font-weight: 700;
+      padding: 20px 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .gaming-table td {
+      padding: 18px 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .gaming-table tr:hover td {
+      background: rgba(59, 130, 246, 0.1);
+      transform: scale(1.02);
+    }
+
+    /* Navigation styling */
+    .nav-item {
+      position: relative;
+      padding: 10px 20px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .nav-item:hover {
+      background: rgba(59, 130, 246, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .nav-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--primary-blue);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .nav-item:hover::after {
+      width: 80%;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .glass-card {
+        margin: 10px;
+        padding: 20px;
+      }
+      
+      .gaming-table th,
+      .gaming-table td {
+        padding: 12px 8px;
+        font-size: 0.875rem;
+      }
+      
+      .glow-text {
+        font-size: 2rem;
+      }
+    }
+
+    /* Loading animation */
+    .loading {
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Scroll animations */
+    .scroll-animation {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease;
+    }
+
+    .scroll-animation.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated particles background -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <!-- Logo and Brand -->
+        <div class="flex items-center space-x-4">
+          <img src="logo.svg" alt="Model Metrics Logo" class="logo w-12 h-12">
+          <div>
+            <h1 class="text-2xl font-bold font-['Orbitron'] text-white">MODEL METRICS</h1>
+            <p class="text-sm text-gray-300" id="brandSubtitle">تقييم نماذج الذكاء الاصطناعي</p>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="hidden md:flex items-center space-x-6">
+          <a href="#home" class="nav-item" id="navHome">الرئيسية</a>
+          <a href="#models" class="nav-item" id="navModels">النماذج</a>
+          <a href="comparison-tool.html" class="nav-item" id="navComparison">أداة المقارنة</a>
+          <a href="about-author.html" class="nav-item" id="navAbout">عن المؤسس</a>
+          <a href="#contact" class="nav-item" id="navContact">اتصل بنا</a>
+        </nav>
+
+        <!-- Language Toggle -->
+        <button onclick="toggleLanguage()" class="gaming-btn" id="langToggle">
+          English / العربية
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-6 py-12">
+    
+    <!-- Hero Section -->
+    <section id="home" class="text-center mb-20 loading">
+      <div class="glass-card p-12 max-w-6xl mx-auto">
+        <!-- Main Title -->
+        <h1 class="text-6xl md:text-8xl font-bold glow-text mb-8" id="heroTitle">
+          تحليل نماذج الذكاء الاصطناعي
+        </h1>
+        
+        <!-- Subtitle -->
+        <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed" id="heroSubtitle">
+          مرحباً بكم في الدليل الشامل لتقييم ومقارنة أقوى نماذج الذكاء الاصطناعي المتاحة حالياً. 
+          نقدم لكم تحليلاً مفصلاً للأسعار والأداء والإمكانيات لمساعدتكم في اختيار النموذج المثالي لاحتياجاتكم.
+        </p>
+
+        <!-- Key Features -->
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <div class="glass-card p-6 text-center">
+            <div class="text-4xl mb-4">🎯</div>
+            <h3 class="text-xl font-bold mb-2" id="feature1Title">دقة التقييم</h3>
+            <p class="text-gray-300 text-sm" id="feature1Desc">تقييم شامل وموضوعي لكل نموذج بناءً على معايير علمية دقيقة</p>
+          </div>
+          <div class="glass-card p-6 text-center">
+            <div class="text-4xl mb-4">💰</div>
+            <h3 class="text-xl font-bold mb-2" id="feature2Title">مقارنة الأسعار</h3>
+            <p class="text-gray-300 text-sm" id="feature2Desc">تحليل تفصيلي للتكاليف والعائد على الاستثمار لكل نموذج</p>
+          </div>
+          <div class="glass-card p-6 text-center">
+            <div class="text-4xl mb-4">📊</div>
+            <h3 class="text-xl font-bold mb-2" id="feature3Title">بيانات محدثة</h3>
+            <p class="text-gray-300 text-sm" id="feature3Desc">معلومات مُحدثة باستمرار لضمان الحصول على أحدث البيانات</p>
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <button onclick="scrollToTable()" class="gaming-btn text-lg px-8 py-4" id="ctaButton">
+          اكتشف النماذج المتاحة
+        </button>
+      </div>
+    </section>
+
+    <!-- Models Comparison Section -->
+    <section id="models" class="mb-20 scroll-animation">
+      <div class="glass-card p-8">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold glow-text mb-6" id="modelsTitle">
+            مقارنة شاملة للنماذج
+          </h2>
+          <p class="text-xl text-gray-300 max-w-4xl mx-auto" id="modelsDescription">
+            الجدول التالي يعرض مقارنة تفصيلية بين أفضل نماذج الذكاء الاصطناعي المتاحة حالياً، 
+            بما في ذلك الأداء والأسعار والإمكانيات المختلفة. انقر على أي نموذج للحصول على تحليل مفصل.
+          </p>
+        </div>
+
+        <!-- Enhanced Table -->
+        <div class="overflow-x-auto">
+          <table class="gaming-table w-full" id="comparisonTable">
+            <thead>
+              <tr>
+                <th id="colModel">النموذج</th>
+                <th id="colPlatform">المنصة</th>
+                <th id="colRating">التقييم</th>
+                <th id="colSWE">اختبار SWE</th>
+                <th id="colThinking">تفكير</th>
+                <th id="colRegex">Regex</th>
+                <th id="colLogic">منطق ذكي</th>
+                <th id="colStructured">مخرجات منظمة</th>
+                <th id="colPrice">السعر الشهري</th>
+                <th id="colDetails">التفاصيل</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr onclick="window.open('claude-opus-4.html', '_blank')" class="cursor-pointer">
+                <td class="font-bold text-blue-400">Claude Opus 4</td>
+                <td>Cursor</td>
+                <td class="text-green-400 font-bold">100%</td>
+                <td>79.4%</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="font-bold">$16.17 + استخدام</td>
+                <td><button class="gaming-btn text-xs px-3 py-1">تفاصيل</button></td>
+              </tr>
+              <tr onclick="window.open('claude-sonnet-4-cursor.html', '_blank')" class="cursor-pointer">
+                <td class="font-bold text-blue-400">Claude Sonnet 4</td>
+                <td>Cursor</td>
+                <td class="text-yellow-400 font-bold">95.5%</td>
+                <td>72.7%</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="text-red-400 text-xl">❌</td>
+                <td class="font-bold">$16.17</td>
+                <td><button class="gaming-btn text-xs px-3 py-1">تفاصيل</button></td>
+              </tr>
+              <tr onclick="window.open('claude-sonnet-4-copilot.html', '_blank')" class="cursor-pointer">
+                <td class="font-bold text-blue-400">Claude Sonnet 4</td>
+                <td>GitHub Copilot+</td>
+                <td class="text-yellow-400 font-bold">95%</td>
+                <td>72.7%</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="text-red-400 text-xl">❌</td>
+                <td class="font-bold">~$32.5</td>
+                <td><button class="gaming-btn text-xs px-3 py-1">تفاصيل</button></td>
+              </tr>
+              <tr onclick="window.open('claude-sonnet-4-windsurf.html', '_blank')" class="cursor-pointer">
+                <td class="font-bold text-blue-400">Claude Sonnet 4</td>
+                <td>Windsurf</td>
+                <td class="text-yellow-400 font-bold">89%</td>
+                <td>72.7%</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="text-red-400 text-xl">❌</td>
+                <td class="text-red-400 text-xl">❌</td>
+                <td class="font-bold text-green-400">مجاني</td>
+                <td><button class="gaming-btn text-xs px-3 py-1">تفاصيل</button></td>
+              </tr>
+              <tr onclick="window.open('o3-model.html', '_blank')" class="cursor-pointer">
+                <td class="font-bold text-orange-400">o3</td>
+                <td>Cursor</td>
+                <td class="text-orange-400 font-bold">76.5%</td>
+                <td>69.1%</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="text-red-400 text-xl">❌</td>
+                <td class="text-red-400 text-xl">❌</td>
+                <td class="font-bold">~$20</td>
+                <td><button class="gaming-btn text-xs px-3 py-1">تفاصيل</button></td>
+              </tr>
+              <tr onclick="window.open('claude-sonnet-4-trae.html', '_blank')" class="cursor-pointer">
+                <td class="font-bold text-blue-400">Claude Sonnet 4</td>
+                <td>Trae</td>
+                <td class="text-orange-400 font-bold">76.5%</td>
+                <td>72.7%</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="text-red-400 text-xl">❌</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="text-red-400 text-xl">❌</td>
+                <td class="font-bold text-green-400">مجاني</td>
+                <td><button class="gaming-btn text-xs px-3 py-1">تفاصيل</button></td>
+              </tr>
+              <tr onclick="window.open('gpt-4-1.html', '_blank')" class="cursor-pointer">
+                <td class="font-bold text-purple-400">GPT-4.1</td>
+                <td>Cursor</td>
+                <td class="text-red-400 font-bold">67.5%</td>
+                <td>~66.0%</td>
+                <td class="text-red-400 text-xl">❌</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="text-red-400 text-xl">❌</td>
+                <td class="text-red-400 text-xl">❌</td>
+                <td class="font-bold">$16.17</td>
+                <td><button class="gaming-btn text-xs px-3 py-1">تفاصيل</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Table Legend -->
+        <div class="mt-8 grid md:grid-cols-2 gap-6">
+          <div class="glass-card p-6">
+            <h3 class="text-xl font-bold mb-4 text-cyan-400" id="legendTitle1">شرح الرموز</h3>
+            <div class="space-y-2 text-sm">
+              <div class="flex items-center gap-3">
+                <span class="text-green-400 text-xl">✅</span>
+                <span id="legendSupported">مدعوم بالكامل</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-red-400 text-xl">❌</span>
+                <span id="legendNotSupported">غير مدعوم</span>
+              </div>
+            </div>
+          </div>
+          <div class="glass-card p-6">
+            <h3 class="text-xl font-bold mb-4 text-cyan-400" id="legendTitle2">التقييم</h3>
+            <div class="space-y-2 text-sm">
+              <div class="flex items-center gap-3">
+                <span class="w-4 h-4 bg-green-400 rounded"></span>
+                <span id="legendExcellent">ممتاز (90%+)</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-4 h-4 bg-yellow-400 rounded"></span>
+                <span id="legendGood">جيد (70-89%)</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-4 h-4 bg-red-400 rounded"></span>
+                <span id="legendPoor">ضعيف (أقل من 70%)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="mb-20 scroll-animation">
+      <div class="glass-card p-8 text-center">
+        <h2 class="text-4xl font-bold glow-text mb-8" id="aboutTitle">عن مؤسس الموقع</h2>
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8">
+            <h3 class="text-2xl font-bold text-cyan-400 mb-4">نايف طلال العيسى</h3>
+            <p class="text-lg text-gray-300 leading-relaxed" id="aboutDescription">
+              خبير في مجال الذكاء الاصطناعي وتقنيات البرمجة المتقدمة، مختص في تحليل وتقييم النماذج الذكية 
+              ومقارنة أدائها وإمكانياتها. يهدف إلى تقديم معلومات دقيقة وموثوقة لمساعدة المطورين والشركات 
+              في اختيار أفضل الحلول التقنية لمشاريعهم.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="mb-20 scroll-animation">
+      <div class="glass-card p-8">
+        <h2 class="text-4xl font-bold glow-text mb-8 text-center" id="contactTitle">تواصل معنا</h2>
+        
+        <!-- Contact Info -->
+        <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
+          <div class="text-center">
+            <div class="text-4xl mb-4">📧</div>
+            <h3 class="text-xl font-bold mb-2" id="emailTitle">البريد الإلكتروني</h3>
+            <a href="mailto:victorystreamlines@gmail.com" class="text-cyan-400 hover:text-cyan-300 transition-colors">
+              victorystreamlines@gmail.com
+            </a>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl mb-4">📱</div>
+            <h3 class="text-xl font-bold mb-2" id="phoneTitle">رقم الاتصال</h3>
+            <a href="tel:+97835349" class="text-cyan-400 hover:text-cyan-300 transition-colors">
+              97835349
+            </a>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl mb-4">🌐</div>
+            <h3 class="text-xl font-bold mb-2" id="websiteTitle">الموقع الإلكتروني</h3>
+            <p class="text-cyan-400">modelmetrics.com</p>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="max-w-2xl mx-auto">
+          <h3 class="text-2xl font-bold mb-6 text-center text-cyan-400" id="formTitle">أرسل لنا رسالة</h3>
+          <form id="contactForm" class="space-y-6" onsubmit="sendEmail(event)">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-sm font-bold mb-2 text-gray-300" id="nameLabel">الاسم</label>
+                <input type="text" id="name" name="name" required 
+                       class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:border-cyan-400 focus:outline-none text-white transition-colors"
+                       placeholder="اسمك الكامل">
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-bold mb-2 text-gray-300" id="emailLabel">البريد الإلكتروني</label>
+                <input type="email" id="email" name="email" required 
+                       class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:border-cyan-400 focus:outline-none text-white transition-colors"
+                       placeholder="your.email@example.com">
+              </div>
+            </div>
+            <div>
+              <label for="subject" class="block text-sm font-bold mb-2 text-gray-300" id="subjectLabel">الموضوع</label>
+              <input type="text" id="subject" name="subject" required 
+                     class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:border-cyan-400 focus:outline-none text-white transition-colors"
+                     placeholder="موضوع الرسالة">
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-bold mb-2 text-gray-300" id="messageLabel">الرسالة</label>
+              <textarea id="message" name="message" rows="6" required 
+                        class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:border-cyan-400 focus:outline-none text-white transition-colors resize-vertical"
+                        placeholder="اكتب رسالتك هنا..."></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="gaming-btn" id="submitBtn">
+                إرسال الرسالة
+              </button>
+            </div>
+          </form>
+          
+          <!-- Success Message -->
+          <div id="successMessage" class="hidden mt-6 p-4 bg-green-600 bg-opacity-20 border border-green-400 rounded-lg text-green-400 text-center">
+            <p id="successText">تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-center py-8 mt-20">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-center mb-4">
+        <img src="logo.svg" alt="Model Metrics Logo" class="w-8 h-8 mr-3">
+        <span class="text-lg font-bold font-['Orbitron']">MODEL METRICS</span>
+      </div>
+      <p class="text-gray-400 text-sm" id="footerText">
+        © 2025 — تقييم النماذج الذكية بواسطة نايف طلال العيسى. جميع الحقوق محفوظة.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Particles animation
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 50;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 6 + 's';
+        particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Scroll animations
+    function handleScrollAnimations() {
+      const elements = document.querySelectorAll('.scroll-animation');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      });
+
+      elements.forEach(el => observer.observe(el));
+    }
+
+    // Smooth scroll to table
+    function scrollToTable() {
+      document.getElementById('models').scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+
+    // Contact form handler
+    function sendEmail(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      
+      // Create mailto URL
+      const body = `From: ${name} (${email})\n\nMessage:\n${message}`;
+      const mailtoUrl = `mailto:victorystreamlines@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Open email client
+      window.location.href = mailtoUrl;
+      
+      // Show success message
+      document.getElementById('successMessage').classList.remove('hidden');
+      
+      // Reset form
+      document.getElementById('contactForm').reset();
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        document.getElementById('successMessage').classList.add('hidden');
+      }, 5000);
+    }
+
+    // Enhanced language toggle
+    function toggleLanguage() {
+      const isArabic = document.documentElement.lang === 'ar';
+      const newLang = isArabic ? 'en' : 'ar';
+      const newDir = isArabic ? 'ltr' : 'rtl';
+      
+      document.documentElement.lang = newLang;
+      document.documentElement.dir = newDir;
+      
+      // Update all text content
+      const translations = {
+        ar: {
+          brandSubtitle: 'تقييم نماذج الذكاء الاصطناعي',
+          navHome: 'الرئيسية',
+          navModels: 'النماذج',
+          navComparison: 'أداة المقارنة',
+          navAbout: 'عن المؤسس',
+          navContact: 'اتصل بنا',
+          langToggle: 'English / العربية',
+          heroTitle: 'تحليل نماذج الذكاء الاصطناعي',
+          heroSubtitle: 'مرحباً بكم في الدليل الشامل لتقييم ومقارنة أقوى نماذج الذكاء الاصطناعي المتاحة حالياً. نقدم لكم تحليلاً مفصلاً للأسعار والأداء والإمكانيات لمساعدتكم في اختيار النموذج المثالي لاحتياجاتكم.',
+          feature1Title: 'دقة التقييم',
+          feature1Desc: 'تقييم شامل وموضوعي لكل نموذج بناءً على معايير علمية دقيقة',
+          feature2Title: 'مقارنة الأسعار',
+          feature2Desc: 'تحليل تفصيلي للتكاليف والعائد على الاستثمار لكل نموذج',
+          feature3Title: 'بيانات محدثة',
+          feature3Desc: 'معلومات مُحدثة باستمرار لضمان الحصول على أحدث البيانات',
+          ctaButton: 'اكتشف النماذج المتاحة',
+          modelsTitle: 'مقارنة شاملة للنماذج',
+          modelsDescription: 'الجدول التالي يعرض مقارنة تفصيلية بين أفضل نماذج الذكاء الاصطناعي المتاحة حالياً، بما في ذلك الأداء والأسعار والإمكانيات المختلفة. انقر على أي نموذج للحصول على تحليل مفصل.',
+          colModel: 'النموذج',
+          colPlatform: 'المنصة',
+          colRating: 'التقييم',
+          colSWE: 'اختبار SWE',
+          colThinking: 'تفكير',
+          colRegex: 'Regex',
+          colLogic: 'منطق ذكي',
+          colStructured: 'مخرجات منظمة',
+          colPrice: 'السعر الشهري',
+          colDetails: 'التفاصيل',
+          aboutTitle: 'عن مؤسس الموقع',
+          aboutDescription: 'خبير في مجال الذكاء الاصطناعي وتقنيات البرمجة المتقدمة، مختص في تحليل وتقييم النماذج الذكية ومقارنة أدائها وإمكانياتها. يهدف إلى تقديم معلومات دقيقة وموثوقة لمساعدة المطورين والشركات في اختيار أفضل الحلول التقنية لمشاريعهم.',
+          contactTitle: 'تواصل معنا',
+          emailTitle: 'البريد الإلكتروني',
+          phoneTitle: 'رقم الاتصال',
+          websiteTitle: 'الموقع الإلكتروني',
+          formTitle: 'أرسل لنا رسالة',
+          nameLabel: 'الاسم',
+          emailLabel: 'البريد الإلكتروني',
+          subjectLabel: 'الموضوع',
+          messageLabel: 'الرسالة',
+          submitBtn: 'إرسال الرسالة',
+          successText: 'تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.',
+          footerText: '© 2025 — تقييم النماذج الذكية بواسطة نايف طلال العيسى. جميع الحقوق محفوظة.'
+        },
+        en: {
+          brandSubtitle: 'AI Models Evaluation',
+          navHome: 'Home',
+          navModels: 'Models',
+          navComparison: 'Comparison Tool',
+          navAbout: 'About Founder',
+          navContact: 'Contact Us',
+          langToggle: 'العربية / English',
+          heroTitle: 'AI Models Analysis',
+          heroSubtitle: 'Welcome to the comprehensive guide for evaluating and comparing the most powerful AI models available today. We provide detailed analysis of pricing, performance, and capabilities to help you choose the perfect model for your needs.',
+          feature1Title: 'Accurate Evaluation',
+          feature1Desc: 'Comprehensive and objective evaluation of each model based on precise scientific criteria',
+          feature2Title: 'Price Comparison',
+          feature2Desc: 'Detailed analysis of costs and return on investment for each model',
+          feature3Title: 'Updated Data',
+          feature3Desc: 'Continuously updated information to ensure access to the latest data',
+          ctaButton: 'Discover Available Models',
+          modelsTitle: 'Comprehensive Models Comparison',
+          modelsDescription: 'The following table shows a detailed comparison between the best AI models currently available, including performance, pricing, and various capabilities. Click on any model for detailed analysis.',
+          colModel: 'Model',
+          colPlatform: 'Platform',
+          colRating: 'Rating',
+          colSWE: 'SWE Test',
+          colThinking: 'Thinking',
+          colRegex: 'Regex',
+          colLogic: 'Smart Logic',
+          colStructured: 'Structured Output',
+          colPrice: 'Monthly Price',
+          colDetails: 'Details',
+          aboutTitle: 'About the Founder',
+          aboutDescription: 'Expert in artificial intelligence and advanced programming technologies, specialized in analyzing and evaluating intelligent models and comparing their performance and capabilities. Aims to provide accurate and reliable information to help developers and companies choose the best technical solutions for their projects.',
+          contactTitle: 'Contact Us',
+          emailTitle: 'Email',
+          phoneTitle: 'Phone Number',
+          websiteTitle: 'Website',
+          formTitle: 'Send us a message',
+          nameLabel: 'Name',
+          emailLabel: 'Email',
+          subjectLabel: 'Subject',
+          messageLabel: 'Message',
+          submitBtn: 'Send Message',
+          successText: 'Your message has been sent successfully! We will contact you soon.',
+          footerText: '© 2025 — AI Models Evaluation by Naif Talal Al-Isa. All rights reserved.'
+        }
+      };
+
+      // Apply translations
+      const currentTranslations = translations[newLang];
+      Object.keys(currentTranslations).forEach(key => {
+        const element = document.getElementById(key);
+        if (element) {
+          if (element.tagName === 'INPUT' || element.tagName === 'BUTTON') {
+            element.value = currentTranslations[key];
+          } else {
+            element.textContent = currentTranslations[key];
+          }
+        }
+      });
+    }
+
+    // Initialize everything when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      createParticles();
+      handleScrollAnimations();
+      
+      // Add loading animation
+      setTimeout(() => {
+        document.querySelector('.loading').style.animationDelay = '0.5s';
+      }, 100);
+    });
+
+    // Add some interactive effects
+    document.querySelectorAll('.gaming-table tr').forEach(row => {
+      row.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.02)';
+      });
+      
+      row.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+      });
+    });
+  </script>
+</body>
+</html>

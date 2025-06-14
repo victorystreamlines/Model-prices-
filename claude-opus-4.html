@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Claude Opus 4 - التحليل المفصل | Model Metrics</title>
+  <meta name="description" content="تحليل شامل ومفصل لنموذج Claude Opus 4 من Anthropic، الأداء المتفوق، السعر، والمقارنة مع النماذج الأخرى.">
+  <meta name="keywords" content="Claude Opus 4, ذكاء اصطناعي, Anthropic, Cursor, تحليل الأداء, مقارنة النماذج">
+  <meta name="author" content="نايف طلال العيسى - Naif Talal Al-Isa">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <style>
+    :root {
+      --primary-blue: #3b82f6;
+      --primary-orange: #f97316;
+      --dark-bg: #0f172a;
+      --card-bg: rgba(15, 23, 42, 0.8);
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --neon-glow: #00ffff;
+      --text-primary: #e2e8f0;
+      --text-secondary: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+      color: var(--text-primary);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Gaming-style background effects */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Glass morphism cards */
+    .glass-card {
+      backdrop-filter: blur(20px);
+      background: var(--glass-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    /* Header styling */
+    .header {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    /* Logo styling */
+    .logo {
+      filter: drop-shadow(0 4px 8px rgba(0, 255, 255, 0.3));
+      transition: all 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 8px 16px rgba(0, 255, 255, 0.5));
+    }
+
+    /* Gaming-style buttons */
+    .gaming-btn {
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-orange) 100%);
+      border: none;
+      border-radius: 12px;
+      padding: 12px 24px;
+      font-weight: 700;
+      font-family: 'Orbitron', monospace;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .gaming-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+    }
+
+    /* Glowing text effect */
+    .glow-text {
+      animation: textGlow 2s ease-in-out infinite alternate;
+      font-family: 'Orbitron', monospace;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--neon-glow) 0%, var(--primary-blue) 50%, var(--primary-orange) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    @keyframes textGlow {
+      from { 
+        text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        filter: brightness(1);
+      }
+      to { 
+        text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 40px rgba(59, 130, 246, 0.6);
+        filter: brightness(1.2);
+      }
+    }
+
+    /* Progress bars */
+    .progress-bar {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      height: 12px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary-blue), var(--primary-orange));
+      border-radius: 10px;
+      transition: width 2s ease;
+    }
+
+    /* Chart container */
+    .chart-container {
+      position: relative;
+      height: 300px;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .glass-card {
+        margin: 10px;
+        padding: 20px;
+      }
+      
+      .glow-text {
+        font-size: 2rem;
+      }
+    }
+
+    /* Navigation */
+    .nav-item {
+      position: relative;
+      padding: 10px 20px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .nav-item:hover {
+      background: rgba(59, 130, 246, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Comparison table styling */
+    .comparison-table {
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .comparison-table th {
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-orange) 100%);
+      color: white;
+      padding: 15px;
+      font-weight: 700;
+    }
+
+    .comparison-table td {
+      padding: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <!-- Logo and Brand -->
+        <div class="flex items-center space-x-4">
+          <img src="logo.svg" alt="Model Metrics Logo" class="logo w-10 h-10">
+          <div>
+            <h1 class="text-xl font-bold font-['Orbitron'] text-white">MODEL METRICS</h1>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="hidden md:flex items-center space-x-6">
+          <a href="index.html" class="nav-item" id="navHome">الرئيسية</a>
+          <a href="#overview" class="nav-item" id="navOverview">نظرة عامة</a>
+          <a href="#performance" class="nav-item" id="navPerformance">الأداء</a>
+          <a href="#pricing" class="nav-item" id="navPricing">التسعير</a>
+          <a href="#comparison" class="nav-item" id="navComparison">المقارنة</a>
+        </nav>
+
+        <!-- Language Toggle -->
+        <button onclick="toggleLanguage()" class="gaming-btn" id="langToggle">
+          English / العربية
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-6 py-12">
+    
+    <!-- Hero Section -->
+    <section id="overview" class="mb-20">
+      <div class="glass-card p-12 text-center">
+        <div class="mb-8">
+          <h1 class="text-5xl md:text-7xl font-bold glow-text mb-6" id="heroTitle">
+            Claude Opus 4
+          </h1>
+          <div class="flex justify-center items-center gap-4 mb-6">
+            <span class="text-2xl font-bold text-blue-400">Anthropic</span>
+            <span class="text-gray-400">×</span>
+            <span class="text-2xl font-bold text-orange-400">Cursor</span>
+          </div>
+          <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed" id="heroDescription">
+            النموذج الأكثر تطوراً من Anthropic، يحقق أداءً استثنائياً بنسبة 100% في التقييمات الشاملة. 
+            يتميز بقدرات التفكير المتقدمة وإدارة المخرجات المنظمة مما يجعله الخيار الأمثل للمشاريع المعقدة.
+          </p>
+        </div>
+
+        <!-- Key Stats -->
+        <div class="grid md:grid-cols-4 gap-6 mb-12">
+          <div class="glass-card p-6 text-center">
+            <div class="text-4xl font-bold text-green-400 mb-2">100%</div>
+            <p class="text-sm text-gray-300" id="stat1">التقييم العام</p>
+          </div>
+          <div class="glass-card p-6 text-center">
+            <div class="text-4xl font-bold text-blue-400 mb-2">79.4%</div>
+            <p class="text-sm text-gray-300" id="stat2">اختبار SWE</p>
+          </div>
+          <div class="glass-card p-6 text-center">
+            <div class="text-4xl font-bold text-orange-400 mb-2">$16.17</div>
+            <p class="text-sm text-gray-300" id="stat3">السعر الأساسي</p>
+          </div>
+          <div class="glass-card p-6 text-center">
+            <div class="text-4xl font-bold text-purple-400 mb-2">A+</div>
+            <p class="text-sm text-gray-300" id="stat4">التصنيف</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Performance Analysis -->
+    <section id="performance" class="mb-20">
+      <div class="glass-card p-8">
+        <h2 class="text-4xl font-bold glow-text mb-8 text-center" id="performanceTitle">
+          تحليل الأداء التفصيلي
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Performance Metrics -->
+          <div>
+            <h3 class="text-2xl font-bold mb-6 text-cyan-400" id="metricsTitle">المقاييس الأساسية</h3>
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span id="thinkingLabel">التفكير المنطقي</span>
+                  <span class="text-green-400 font-bold">100%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 100%"></div>
+                </div>
+                <p class="text-sm text-gray-400 mt-2" id="thinkingDesc">
+                  قدرة متقدمة على التحليل المنطقي والاستنتاج المعقد
+                </p>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span id="regexLabel">معالجة Regex</span>
+                  <span class="text-green-400 font-bold">95%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 95%"></div>
+                </div>
+                <p class="text-sm text-gray-400 mt-2" id="regexDesc">
+                  دقة عالية في فهم وإنشاء التعبيرات النمطية المعقدة
+                </p>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span id="logicLabel">المنطق الذكي</span>
+                  <span class="text-green-400 font-bold">98%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 98%"></div>
+                </div>
+                <p class="text-sm text-gray-400 mt-2" id="logicDesc">
+                  حل المشاكل المعقدة بطريقة منطقية ومتقدمة
+                </p>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span id="structuredLabel">المخرجات المنظمة</span>
+                  <span class="text-green-400 font-bold">100%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 100%"></div>
+                </div>
+                <p class="text-sm text-gray-400 mt-2" id="structuredDesc">
+                  تنظيم مثالي للبيانات والمعلومات المعقدة
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Performance Chart -->
+          <div>
+            <h3 class="text-2xl font-bold mb-6 text-cyan-400" id="chartTitle">مقارنة الأداء</h3>
+            <div class="chart-container">
+              <canvas id="performanceChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Analysis -->
+    <section id="pricing" class="mb-20">
+      <div class="glass-card p-8">
+        <h2 class="text-4xl font-bold glow-text mb-8 text-center" id="pricingTitle">
+          تحليل التسعير والقيمة
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-2xl font-bold mb-6 text-orange-400" id="costBreakdownTitle">تفصيل التكاليف</h3>
+            <div class="space-y-4">
+              <div class="glass-card p-4">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold" id="basePriceLabel">السعر الأساسي (Cursor Pro)</span>
+                  <span class="text-orange-400 font-bold">$16.17/شهر</span>
+                </div>
+              </div>
+              <div class="glass-card p-4">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold" id="usageFeeLabel">رسوم الاستخدام الإضافية</span>
+                  <span class="text-yellow-400 font-bold">متغيرة</span>
+                </div>
+              </div>
+              <div class="glass-card p-4">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold" id="totalCostLabel">التكلفة الإجمالية المتوقعة</span>
+                  <span class="text-red-400 font-bold">$25-50/شهر</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <h4 class="text-xl font-bold mb-4 text-cyan-400" id="valuePropositionTitle">مقترح القيمة</h4>
+              <ul class="space-y-2 text-gray-300">
+                <li class="flex items-center gap-2">
+                  <span class="text-green-400">✓</span>
+                  <span id="value1">أفضل أداء شامل في السوق</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-green-400">✓</span>
+                  <span id="value2">قدرات تفكير متقدمة فريدة</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-green-400">✓</span>
+                  <span id="value3">مخرجات منظمة بشكل مثالي</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-green-400">✓</span>
+                  <span id="value4">مثالي للمشاريع التجارية المعقدة</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-bold mb-6 text-orange-400" id="costComparisonTitle">مقارنة التكلفة</h3>
+            <div class="chart-container">
+              <canvas id="costChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed Comparison -->
+    <section id="comparison" class="mb-20">
+      <div class="glass-card p-8">
+        <h2 class="text-4xl font-bold glow-text mb-8 text-center" id="comparisonTitle">
+          مقارنة مع النماذج الأخرى
+        </h2>
+
+        <div class="overflow-x-auto">
+          <table class="comparison-table w-full">
+            <thead>
+              <tr>
+                <th id="colFeature">الميزة</th>
+                <th>Claude Opus 4</th>
+                <th>Claude Sonnet 4</th>
+                <th>GPT-4.1</th>
+                <th>o3</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-bold" id="rowRating">التقييم العام</td>
+                <td class="text-green-400 font-bold">100%</td>
+                <td class="text-yellow-400">95.5%</td>
+                <td class="text-red-400">67.5%</td>
+                <td class="text-orange-400">76.5%</td>
+              </tr>
+              <tr>
+                <td class="font-bold" id="rowSWE">اختبار SWE</td>
+                <td class="text-green-400 font-bold">79.4%</td>
+                <td class="text-blue-400">72.7%</td>
+                <td class="text-red-400">66.0%</td>
+                <td class="text-orange-400">69.1%</td>
+              </tr>
+              <tr>
+                <td class="font-bold" id="rowThinking">التفكير</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="text-red-400 text-xl">❌</td>
+                <td class="text-green-400 text-xl">✅</td>
+              </tr>
+              <tr>
+                <td class="font-bold" id="rowStructured">المخرجات المنظمة</td>
+                <td class="text-green-400 text-xl">✅</td>
+                <td class="text-red-400 text-xl">❌</td>
+                <td class="text-red-400 text-xl">❌</td>
+                <td class="text-red-400 text-xl">❌</td>
+              </tr>
+              <tr>
+                <td class="font-bold" id="rowPrice">السعر الشهري</td>
+                <td class="text-orange-400 font-bold">$16.17+</td>
+                <td class="text-green-400">$16.17</td>
+                <td class="text-green-400">$16.17</td>
+                <td class="text-yellow-400">~$20</td>
+              </tr>
+              <tr>
+                <td class="font-bold" id="rowRecommendation">التوصية</td>
+                <td class="text-green-400 font-bold" id="recOpus">للمشاريع المعقدة</td>
+                <td class="text-blue-400" id="recSonnet">للاستخدام العام</td>
+                <td class="text-red-400" id="recGPT">غير موصى به</td>
+                <td class="text-orange-400" id="recO3">للتجارب</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Claude Opus 4 -->
+    <section class="mb-20">
+      <div class="glass-card p-8">
+        <h2 class="text-4xl font-bold glow-text mb-8 text-center" id="whyChooseTitle">
+          لماذا نختار Claude Opus 4؟
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="text-6xl mb-4">🧠</div>
+            <h3 class="text-xl font-bold mb-4 text-cyan-400" id="reason1Title">ذكاء متقدم</h3>
+            <p class="text-gray-300" id="reason1Desc">
+              يتفوق على جميع النماذج الأخرى في القدرة على التفكير المنطقي والتحليل المعقد، 
+              مما يجعله الخيار الأمثل للمهام التي تتطلب ذكاءً عالياً.
+            </p>
+          </div>
+          
+          <div class="text-center">
+            <div class="text-6xl mb-4">📊</div>
+            <h3 class="text-xl font-bold mb-4 text-cyan-400" id="reason2Title">مخرجات منظمة</h3>
+            <p class="text-gray-300" id="reason2Desc">
+              النموذج الوحيد الذي يوفر مخرجات منظمة بشكل مثالي، مما يوفر الوقت والجهد 
+              في معالجة البيانات وتنظيمها لاحقاً.
+            </p>
+          </div>
+          
+          <div class="text-center">
+            <div class="text-6xl mb-4">💼</div>
+            <h3 class="text-xl font-bold mb-4 text-cyan-400" id="reason3Title">جودة تجارية</h3>
+            <p class="text-gray-300" id="reason3Desc">
+              مصمم خصيصاً للمشاريع التجارية المعقدة حيث الجودة والدقة أهم من التكلفة، 
+              مما يضمن نتائج احترافية عالية المستوى.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-center py-8 mt-20">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-center mb-4">
+        <img src="logo.svg" alt="Model Metrics Logo" class="w-8 h-8 mr-3">
+        <span class="text-lg font-bold font-['Orbitron']">MODEL METRICS</span>
+      </div>
+      <p class="text-gray-400 text-sm" id="footerText">
+        © 2025 — تقييم النماذج الذكية بواسطة نايف طلال العيسى. جميع الحقوق محفوظة.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Charts
+    function initCharts() {
+      // Performance Chart
+      const performanceCtx = document.getElementById('performanceChart').getContext('2d');
+      new Chart(performanceCtx, {
+        type: 'radar',
+        data: {
+          labels: ['التفكير', 'Regex', 'المنطق الذكي', 'المخرجات المنظمة', 'اختبار SWE'],
+          datasets: [{
+            label: 'Claude Opus 4',
+            data: [100, 95, 98, 100, 79.4],
+            borderColor: '#3b82f6',
+            backgroundColor: 'rgba(59, 130, 246, 0.2)',
+            borderWidth: 2,
+            pointBackgroundColor: '#3b82f6'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: {
+                color: '#e2e8f0'
+              }
+            }
+          },
+          scales: {
+            r: {
+              beginAtZero: true,
+              max: 100,
+              grid: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              },
+              angleLines: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              },
+              pointLabels: {
+                color: '#e2e8f0',
+                font: {
+                  size: 12
+                }
+              },
+              ticks: {
+                color: '#94a3b8',
+                backdropColor: 'transparent'
+              }
+            }
+          }
+        }
+      });
+
+      // Cost Comparison Chart
+      const costCtx = document.getElementById('costChart').getContext('2d');
+      new Chart(costCtx, {
+        type: 'bar',
+        data: {
+          labels: ['Claude Opus 4', 'Claude Sonnet 4', 'GPT-4.1', 'o3'],
+          datasets: [{
+            label: 'التكلفة الشهرية ($)',
+            data: [35, 16.17, 16.17, 20],
+            backgroundColor: [
+              'rgba(59, 130, 246, 0.8)',
+              'rgba(34, 197, 94, 0.8)',
+              'rgba(239, 68, 68, 0.8)',
+              'rgba(249, 115, 22, 0.8)'
+            ],
+            borderColor: [
+              '#3b82f6',
+              '#22c55e',
+              '#ef4444',
+              '#f97316'
+            ],
+            borderWidth: 2,
+            borderRadius: 8
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: {
+                color: '#e2e8f0'
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              },
+              ticks: {
+                color: '#e2e8f0'
+              }
+            },
+            y: {
+              grid: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              },
+              ticks: {
+                color: '#e2e8f0'
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // Language Toggle Function
+    function toggleLanguage() {
+      const isArabic = document.documentElement.lang === 'ar';
+      const newLang = isArabic ? 'en' : 'ar';
+      const newDir = isArabic ? 'ltr' : 'rtl';
+      
+      document.documentElement.lang = newLang;
+      document.documentElement.dir = newDir;
+      
+      // Update all text content based on language
+      const translations = {
+        ar: {
+          heroTitle: 'Claude Opus 4',
+          heroDescription: 'النموذج الأكثر تطوراً من Anthropic، يحقق أداءً استثنائياً بنسبة 100% في التقييمات الشاملة. يتميز بقدرات التفكير المتقدمة وإدارة المخرجات المنظمة مما يجعله الخيار الأمثل للمشاريع المعقدة.',
+          // Add more translations...
+        },
+        en: {
+          heroTitle: 'Claude Opus 4',
+          heroDescription: 'The most advanced model from Anthropic, achieving exceptional 100% performance in comprehensive evaluations. Features advanced reasoning capabilities and structured output management, making it the ideal choice for complex projects.',
+          // Add more translations...
+        }
+      };
+
+      // Apply translations (simplified for brevity)
+      // In a real implementation, you would update all text elements
+    }
+
+    // Initialize everything when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      initCharts();
+      
+      // Animate progress bars
+      setTimeout(() => {
+        document.querySelectorAll('.progress-fill').forEach(bar => {
+          bar.style.transition = 'width 2s ease';
+        });
+      }, 500);
+    });
+  </script>
+</body>
+</html>

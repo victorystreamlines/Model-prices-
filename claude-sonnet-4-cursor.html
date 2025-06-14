@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Sonnet 4 (Cursor) - تحليل مفصل | موقع تحليل نماذج الذكاء الاصطناعي</title>
+  <meta name="description" content="تحليل شامل ومفصل لنموذج Claude Sonnet 4 عبر منصة Cursor - التقييم، الأداء، التكلفة، والمقارنات مع النماذج الأخرى">
+  <meta name="keywords" content="Claude Sonnet 4, Cursor, AI models, artificial intelligence, تحليل الذكاء الاصطناعي, مقارنة النماذج">
+  <meta name="author" content="نايف طلال العيسى">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Claude Sonnet 4 (Cursor) - تحليل مفصل">
+  <meta property="og:description" content="تحليل شامل لنموذج Claude Sonnet 4 عبر منصة Cursor">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTnsmCAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANCSURBVFiFtZddaBxVFMd/587M7iabNI1Ja2pSG1urtVpLW6qCH4iKD4Ig+CD4gQ8+iA8+iOCDDz5Y8UHwQRBBfBB8EHxQfBB8EHzwQfBB8EHwQfBB8EHwQfBBfBB80AcfBB9EH3zwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfBB8EHwQfFA==">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --neon-blue: #00ffff;
+      --neon-purple: #8a2be2;
+      --neon-green: #39ff14;
+      --dark-bg: #0a0a0f;
+      --card-bg: rgba(15, 23, 42, 0.8);
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .gaming-header {
+      font-family: 'Orbitron', monospace;
+      background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+    }
+
+    .cyber-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(0, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cyber-card:hover {
+      border-color: var(--neon-blue);
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
+      transform: translateY(-5px);
+    }
+
+    .cyber-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+      transition: left 0.5s;
+    }
+
+    .cyber-card:hover::before {
+      left: 100%;
+    }
+
+    .neon-button {
+      background: linear-gradient(45deg, #00ffff, #8a2be2);
+      border: none;
+      border-radius: 25px;
+      padding: 12px 24px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+    }
+
+    .neon-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 255, 255, 0.5);
+    }
+
+    .performance-meter {
+      width: 100%;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .performance-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #ff6b6b, #ffd93d, #39ff14);
+      border-radius: 10px;
+      transition: width 1s ease;
+      position: relative;
+    }
+
+    .performance-fill::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .lang-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: rgba(0, 255, 255, 0.1);
+      border: 1px solid var(--neon-blue);
+      border-radius: 25px;
+      padding: 8px 16px;
+      color: var(--neon-blue);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .lang-toggle:hover {
+      background: rgba(0, 255, 255, 0.2);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .nav-breadcrumb {
+      background: rgba(0, 255, 255, 0.1);
+      padding: 10px 20px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(0, 255, 255, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .lang-toggle {
+        top: 10px;
+        right: 10px;
+        font-size: 14px;
+        padding: 6px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="lang-toggle" onclick="toggleLanguage()" id="languageToggle">
+    English
+  </button>
+
+  <div class="container mx-auto px-4 py-8">
+    <!-- Navigation Breadcrumb -->
+    <div class="nav-breadcrumb">
+      <a href="index.html" class="text-cyan-400 hover:text-cyan-300 transition-colors">🏠 الصفحة الرئيسية</a>
+      <span class="mx-2 text-gray-400">></span>
+      <span class="text-white" id="breadcrumbText">Claude Sonnet 4 (Cursor)</span>
+    </div>
+
+    <!-- Logo and Header -->
+    <div class="text-center mb-12">
+      <img src="logo.svg" alt="Model Metrics Logo" class="w-20 h-20 mx-auto mb-6" style="filter: drop-shadow(0 4px 8px rgba(0, 255, 255, 0.3));">
+      <h1 class="gaming-header text-5xl font-bold mb-4" id="mainTitle">
+        Claude Sonnet 4 (Cursor)
+      </h1>
+      <p class="text-xl text-gray-300 mb-6" id="mainSubtitle">
+        تحليل شامل ومفصل للنموذج الذي حقق تقييم 95.5%
+      </p>
+    </div>
+
+    <!-- Main Model Analysis -->
+    <div class="cyber-card p-8 mb-8">
+      <h2 class="text-3xl font-bold mb-6 text-cyan-400" id="overviewTitle">📊 نظرة عامة على النموذج</h2>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4 text-purple-400" id="basicInfoTitle">المعلومات الأساسية</h3>
+          <div class="space-y-4">
+            <div class="flex justify-between items-center">
+              <span id="modelNameLabel">اسم النموذج:</span>
+              <span class="text-cyan-400 font-bold">Claude Sonnet 4</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span id="platformLabel">المنصة:</span>
+              <span class="text-cyan-400 font-bold">Cursor</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span id="priceLabel">السعر الشهري:</span>
+              <span class="text-green-400 font-bold">$16.17</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span id="ratingLabel">التقييم العام:</span>
+              <span class="text-green-400 font-bold">95.5%</span>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-bold mb-4 text-purple-400" id="performanceTitle">مؤشرات الأداء</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-2">
+                <span id="overallScoreLabel">التقييم العام</span>
+                <span class="text-green-400 font-bold">95.5%</span>
+              </div>
+              <div class="performance-meter">
+                <div class="performance-fill" style="width: 95.5%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-2">
+                <span id="sweScoreLabel">اختبار SWE-bench</span>
+                <span class="text-green-400 font-bold">72.7%</span>
+              </div>
+              <div class="performance-meter">
+                <div class="performance-fill" style="width: 72.7%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature Analysis -->
+    <div class="cyber-card p-8 mb-8">
+      <h2 class="text-3xl font-bold mb-6 text-cyan-400" id="featuresTitle">🔍 تحليل المميزات</h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div class="text-4xl mb-3">🧠</div>
+          <h3 class="text-lg font-bold mb-2 text-purple-400" id="thinkingLabel">التفكير المنطقي</h3>
+          <div class="text-green-400 text-2xl mb-2">✅</div>
+          <p class="text-sm text-gray-300" id="thinkingDesc">
+            يمتلك قدرات متقدمة في التحليل المنطقي والتفكير النقدي
+          </p>
+        </div>
+        
+        <div class="text-center">
+          <div class="text-4xl mb-3">🔤</div>
+          <h3 class="text-lg font-bold mb-2 text-purple-400" id="regexLabel">معالجة Regex</h3>
+          <div class="text-green-400 text-2xl mb-2">✅</div>
+          <p class="text-sm text-gray-300" id="regexDesc">
+            يتعامل بكفاءة عالية مع التعبيرات النمطية المعقدة
+          </p>
+        </div>
+        
+        <div class="text-center">
+          <div class="text-4xl mb-3">🎯</div>
+          <h3 class="text-lg font-bold mb-2 text-purple-400" id="smartLogicLabel">المنطق الذكي</h3>
+          <div class="text-green-400 text-2xl mb-2">✅</div>
+          <p class="text-sm text-gray-300" id="smartLogicDesc">
+            يظهر ذكاءً متقدماً في حل المشاكل المعقدة
+          </p>
+        </div>
+        
+        <div class="text-center">
+          <div class="text-4xl mb-3">📋</div>
+          <h3 class="text-lg font-bold mb-2 text-purple-400" id="structuredLabel">المخرجات المنظمة</h3>
+          <div class="text-red-400 text-2xl mb-2">❌</div>
+          <p class="text-sm text-gray-300" id="structuredDesc">
+            يحتاج تحسين في تنظيم وهيكلة المخرجات
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detailed Analysis -->
+    <div class="cyber-card p-8 mb-8">
+      <h2 class="text-3xl font-bold mb-6 text-cyan-400" id="detailedAnalysisTitle">📈 التحليل المفصل</h2>
+      
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-xl font-bold mb-4 text-purple-400" id="whyThisPriceTitle">لماذا هذا السعر؟ ($16.17)</h3>
+          <div class="bg-gray-800 bg-opacity-50 p-6 rounded-lg">
+            <p class="text-gray-300 leading-relaxed" id="priceAnalysis">
+              يعتبر سعر $16.17 شهرياً معقولاً جداً مقارنة بالأداء المتميز للنموذج. هذا السعر يعكس:
+            </p>
+            <ul class="list-disc list-inside mt-4 space-y-2 text-gray-300">
+              <li id="pricePoint1">تكلفة البنية التحتية المتقدمة لمنصة Cursor</li>
+              <li id="pricePoint2">جودة الاستجابات والدقة العالية في النتائج</li>
+              <li id="pricePoint3">التحديثات المستمرة والدعم التقني</li>
+              <li id="pricePoint4">استخدام تقنيات الذكاء الاصطناعي المتطورة</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-4 text-purple-400" id="strengthsTitle">نقاط القوة</h3>
+          <div class="bg-green-900 bg-opacity-30 p-6 rounded-lg">
+            <ul class="space-y-3">
+              <li class="flex items-start" id="strength1">
+                <span class="text-green-400 mr-3">✓</span>
+                <span>تقييم ممتاز 95.5% يضعه في المراتب الأولى</span>
+              </li>
+              <li class="flex items-start" id="strength2">
+                <span class="text-green-400 mr-3">✓</span>
+                <span>أداء قوي في اختبار SWE-bench بنسبة 72.7%</span>
+              </li>
+              <li class="flex items-start" id="strength3">
+                <span class="text-green-400 mr-3">✓</span>
+                <span>تكامل ممتاز مع بيئة تطوير Cursor</span>
+              </li>
+              <li class="flex items-start" id="strength4">
+                <span class="text-green-400 mr-3">✓</span>
+                <span>قدرات متقدمة في التحليل والتفكير المنطقي</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-4 text-purple-400" id="weaknessesTitle">نقاط التحسين</h3>
+          <div class="bg-red-900 bg-opacity-30 p-6 rounded-lg">
+            <ul class="space-y-3">
+              <li class="flex items-start" id="weakness1">
+                <span class="text-red-400 mr-3">✗</span>
+                <span>عدم تنظيم المخرجات بالشكل المطلوب</span>
+              </li>
+              <li class="flex items-start" id="weakness2">
+                <span class="text-yellow-400 mr-3">!</span>
+                <span>يحتاج تحسين في عرض النتائج بشكل منظم</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparison with Other Models -->
+    <div class="cyber-card p-8 mb-8">
+      <h2 class="text-3xl font-bold mb-6 text-cyan-400" id="comparisonTitle">⚖️ مقارنة مع النماذج الأخرى</h2>
+      
+      <div class="comparison-grid">
+        <div class="bg-gradient-to-br from-green-900 to-green-700 p-6 rounded-lg">
+          <h3 class="text-lg font-bold mb-3 text-green-300" id="vsOpusTitle">مقابل Claude Opus 4</h3>
+          <div class="space-y-2 text-sm">
+            <div class="flex justify-between">
+              <span id="opusPrice">السعر:</span>
+              <span class="text-red-300">أغلى (+استخدام)</span>
+            </div>
+            <div class="flex justify-between">
+              <span id="opusPerformance">الأداء:</span>
+              <span class="text-red-300">أفضل (100%)</span>
+            </div>
+            <div class="flex justify-between">
+              <span id="opusValue">القيمة مقابل السعر:</span>
+              <span class="text-green-300">Claude Sonnet 4 أفضل</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-blue-900 to-blue-700 p-6 rounded-lg">
+          <h3 class="text-lg font-bold mb-3 text-blue-300" id="vsCopilotTitle">مقابل Claude Sonnet 4 (GitHub Copilot+)</h3>
+          <div class="space-y-2 text-sm">
+            <div class="flex justify-between">
+              <span id="copilotPrice">السعر:</span>
+              <span class="text-green-300">أرخص ($16.17 مقابل ~$32.5)</span>
+            </div>
+            <div class="flex justify-between">
+              <span id="copilotPerformance">الأداء:</span>
+              <span class="text-yellow-300">متقارب (95.5% مقابل 95%)</span>
+            </div>
+            <div class="flex justify-between">
+              <span id="copilotValue">القيمة:</span>
+              <span class="text-green-300">أفضل بكثير</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-purple-900 to-purple-700 p-6 rounded-lg">
+          <h3 class="text-lg font-bold mb-3 text-purple-300" id="vsWindsurfTitle">مقابل Claude Sonnet 4 (Windsurf)</h3>
+          <div class="space-y-2 text-sm">
+            <div class="flex justify-between">
+              <span id="windsurfPrice">السعر:</span>
+              <span class="text-red-300">مدفوع مقابل مجاني</span>
+            </div>
+            <div class="flex justify-between">
+              <span id="windsurfPerformance">الأداء:</span>
+              <span class="text-green-300">أفضل (95.5% مقابل 89%)</span>
+            </div>
+            <div class="flex justify-between">
+              <span id="windsurfValue">التبرير:</span>
+              <span class="text-green-300">يستحق الدفع</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-orange-900 to-orange-700 p-6 rounded-lg">
+          <h3 class="text-lg font-bold mb-3 text-orange-300" id="vsGptTitle">مقابل GPT-4.1</h3>
+          <div class="space-y-2 text-sm">
+            <div class="flex justify-between">
+              <span id="gptPrice">السعر:</span>
+              <span class="text-yellow-300">نفس السعر ($16.17)</span>
+            </div>
+            <div class="flex justify-between">
+              <span id="gptPerformance">الأداء:</span>
+              <span class="text-green-300">أفضل بكثير (95.5% مقابل 67.5%)</span>
+            </div>
+            <div class="flex justify-between">
+              <span id="gptValue">النتيجة:</span>
+              <span class="text-green-300">Claude Sonnet 4 أفضل</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="cyber-card p-8 mb-8">
+      <h2 class="text-3xl font-bold mb-6 text-cyan-400" id="recommendationTitle">🎯 التوصية النهائية</h2>
+      <div class="bg-gradient-to-r from-cyan-900 to-blue-900 p-6 rounded-lg">
+        <div class="flex items-center mb-4">
+          <div class="text-4xl mr-4">⭐</div>
+          <div>
+            <h3 class="text-xl font-bold text-cyan-300" id="recTitle">توصية قوية للاستخدام</h3>
+            <p class="text-gray-300" id="recRating">تقييم: 9.5/10</p>
+          </div>
+        </div>
+        <p class="text-gray-300 leading-relaxed" id="recDescription">
+          Claude Sonnet 4 عبر منصة Cursor يعتبر خياراً ممتازاً للمطورين والمحترفين. يوفر أداءً متقدماً بسعر معقول، 
+          ويتميز بقدرات قوية في التحليل والتفكير المنطقي. الضعف الوحيد في تنظيم المخرجات لا يؤثر كثيراً على القيمة الإجمالية للنموذج.
+        </p>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between items-center mt-12">
+      <a href="claude-opus-4.html" class="neon-button" id="prevBtn">← النموذج السابق</a>
+      <a href="index.html" class="neon-button" id="homeBtn">🏠 الصفحة الرئيسية</a>
+      <a href="claude-sonnet-4-copilot.html" class="neon-button" id="nextBtn">النموذج التالي →</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-16 py-8 border-t border-gray-700">
+      <div class="mb-4">
+        <h3 class="text-lg font-bold text-cyan-400 mb-2" id="authorTitle">معلومات الكاتب</h3>
+        <p class="text-gray-300" id="authorName">مؤسس الموقع: نايف طلال العيسى</p>
+        <p class="text-gray-300" id="authorContact">الاتصال: 97835349 | البريد: victorystreamlines@gmail.com</p>
+      </div>
+      <p class="text-gray-400 text-sm" id="copyright">© 2025 موقع تحليل نماذج الذكاء الاصطناعي. جميع الحقوق محفوظة.</p>
+    </footer>
+  </div>
+
+  <script>
+    let currentLang = 'ar';
+    
+    const translations = {
+      ar: {
+        breadcrumbText: 'Claude Sonnet 4 (Cursor)',
+        mainTitle: 'Claude Sonnet 4 (Cursor)',
+        mainSubtitle: 'تحليل شامل ومفصل للنموذج الذي حقق تقييم 95.5%',
+        overviewTitle: '📊 نظرة عامة على النموذج',
+        basicInfoTitle: 'المعلومات الأساسية',
+        modelNameLabel: 'اسم النموذج:',
+        platformLabel: 'المنصة:',
+        priceLabel: 'السعر الشهري:',
+        ratingLabel: 'التقييم العام:',
+        performanceTitle: 'مؤشرات الأداء',
+        overallScoreLabel: 'التقييم العام',
+        sweScoreLabel: 'اختبار SWE-bench',
+        featuresTitle: '🔍 تحليل المميزات',
+        thinkingLabel: 'التفكير المنطقي',
+        thinkingDesc: 'يمتلك قدرات متقدمة في التحليل المنطقي والتفكير النقدي',
+        regexLabel: 'معالجة Regex',
+        regexDesc: 'يتعامل بكفاءة عالية مع التعبيرات النمطية المعقدة',
+        smartLogicLabel: 'المنطق الذكي',
+        smartLogicDesc: 'يظهر ذكاءً متقدماً في حل المشاكل المعقدة',
+        structuredLabel: 'المخرجات المنظمة',
+        structuredDesc: 'يحتاج تحسين في تنظيم وهيكلة المخرجات',
+        detailedAnalysisTitle: '📈 التحليل المفصل',
+        whyThisPriceTitle: 'لماذا هذا السعر؟ ($16.17)',
+        priceAnalysis: 'يعتبر سعر $16.17 شهرياً معقولاً جداً مقارنة بالأداء المتميز للنموذج. هذا السعر يعكس:',
+        pricePoint1: 'تكلفة البنية التحتية المتقدمة لمنصة Cursor',
+        pricePoint2: 'جودة الاستجابات والدقة العالية في النتائج',
+        pricePoint3: 'التحديثات المستمرة والدعم التقني',
+        pricePoint4: 'استخدام تقنيات الذكاء الاصطناعي المتطورة',
+        strengthsTitle: 'نقاط القوة',
+        strength1: 'تقييم ممتاز 95.5% يضعه في المراتب الأولى',
+        strength2: 'أداء قوي في اختبار SWE-bench بنسبة 72.7%',
+        strength3: 'تكامل ممتاز مع بيئة تطوير Cursor',
+        strength4: 'قدرات متقدمة في التحليل والتفكير المنطقي',
+        weaknessesTitle: 'نقاط التحسين',
+        weakness1: 'عدم تنظيم المخرجات بالشكل المطلوب',
+        weakness2: 'يحتاج تحسين في عرض النتائج بشكل منظم',
+        comparisonTitle: '⚖️ مقارنة مع النماذج الأخرى',
+        recommendationTitle: '🎯 التوصية النهائية',
+        recTitle: 'توصية قوية للاستخدام',
+        recRating: 'تقييم: 9.5/10',
+        recDescription: 'Claude Sonnet 4 عبر منصة Cursor يعتبر خياراً ممتازاً للمطورين والمحترفين. يوفر أداءً متقدماً بسعر معقول، ويتميز بقدرات قوية في التحليل والتفكير المنطقي. الضعف الوحيد في تنظيم المخرجات لا يؤثر كثيراً على القيمة الإجمالية للنموذج.',
+        prevBtn: '← النموذج السابق',
+        homeBtn: '🏠 الصفحة الرئيسية',
+        nextBtn: 'النموذج التالي →',
+        authorTitle: 'معلومات الكاتب',
+        authorName: 'مؤسس الموقع: نايف طلال العيسى',
+        authorContact: 'الاتصال: 97835349 | البريد: victorystreamlines@gmail.com',
+        copyright: '© 2025 موقع تحليل نماذج الذكاء الاصطناعي. جميع الحقوق محفوظة.'
+      },
+      en: {
+        breadcrumbText: 'Claude Sonnet 4 (Cursor)',
+        mainTitle: 'Claude Sonnet 4 (Cursor)',
+        mainSubtitle: 'Comprehensive Analysis of the Model with 95.5% Rating',
+        overviewTitle: '📊 Model Overview',
+        basicInfoTitle: 'Basic Information',
+        modelNameLabel: 'Model Name:',
+        platformLabel: 'Platform:',
+        priceLabel: 'Monthly Price:',
+        ratingLabel: 'Overall Rating:',
+        performanceTitle: 'Performance Metrics',
+        overallScoreLabel: 'Overall Score',
+        sweScoreLabel: 'SWE-bench Test',
+        featuresTitle: '🔍 Feature Analysis',
+        thinkingLabel: 'Logical Thinking',
+        thinkingDesc: 'Advanced capabilities in logical analysis and critical thinking',
+        regexLabel: 'Regex Processing',
+        regexDesc: 'Handles complex regular expressions with high efficiency',
+        smartLogicLabel: 'Smart Logic',
+        smartLogicDesc: 'Shows advanced intelligence in solving complex problems',
+        structuredLabel: 'Structured Output',
+        structuredDesc: 'Needs improvement in organizing and structuring outputs',
+        detailedAnalysisTitle: '📈 Detailed Analysis',
+        whyThisPriceTitle: 'Why This Price? ($16.17)',
+        priceAnalysis: 'The $16.17 monthly price is very reasonable compared to the model\'s excellent performance. This price reflects:',
+        pricePoint1: 'Advanced infrastructure costs for Cursor platform',
+        pricePoint2: 'High-quality responses and accuracy in results',
+        pricePoint3: 'Continuous updates and technical support',
+        pricePoint4: 'Use of advanced AI technologies',
+        strengthsTitle: 'Strengths',
+        strength1: 'Excellent 95.5% rating placing it in top ranks',
+        strength2: 'Strong performance in SWE-bench test at 72.7%',
+        strength3: 'Excellent integration with Cursor development environment',
+        strength4: 'Advanced capabilities in analysis and logical thinking',
+        weaknessesTitle: 'Areas for Improvement',
+        weakness1: 'Lack of proper output organization',
+        weakness2: 'Needs improvement in presenting results in an organized manner',
+        comparisonTitle: '⚖️ Comparison with Other Models',
+        recommendationTitle: '🎯 Final Recommendation',
+        recTitle: 'Strong Recommendation for Use',
+        recRating: 'Rating: 9.5/10',
+        recDescription: 'Claude Sonnet 4 via Cursor platform is an excellent choice for developers and professionals. It offers advanced performance at a reasonable price, and excels in analysis and logical thinking capabilities. The only weakness in output organization doesn\'t significantly impact the overall value of the model.',
+        prevBtn: '← Previous Model',
+        homeBtn: '🏠 Home',
+        nextBtn: 'Next Model →',
+        authorTitle: 'Author Information',
+        authorName: 'Website Founder: Naif Talal Al-Issa',
+        authorContact: 'Contact: 97835349 | Email: victorystreamlines@gmail.com',
+        copyright: '© 2025 AI Models Analysis Website. All rights reserved.'
+      }
+    };
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'ar' ? 'en' : 'ar';
+      document.documentElement.lang = currentLang;
+      document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+      
+      const toggleBtn = document.getElementById('languageToggle');
+      toggleBtn.textContent = currentLang === 'ar' ? 'English' : 'العربية';
+      
+      // Update all translatable elements
+      Object.keys(translations[currentLang]).forEach(key => {
+        const element = document.getElementById(key);
+        if (element) {
+          element.textContent = translations[currentLang][key];
+        }
+      });
+    }
+
+    // Add loading animation
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+    });
+  </script>
+</body>
+</html>
