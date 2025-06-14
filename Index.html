@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تحليل ومقارنة نماذج الذكاء الاصطناعي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to left, #1f2937, #4b5563);
+      color: #fff;
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .glass {
+      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 95%;
+    }
+    .glow {
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #10b981, 0 0 10px #10b981; }
+      to { text-shadow: 0 0 20px #10b981, 0 0 40px #10b981; }
+    }
+    .lang-btn {
+      transition: background 0.3s;
+    }
+    .lang-btn:hover {
+      background: #10b981;
+    }
+  </style>
+</head>
+<body>
+  <div class="glass">
+    <div class="flex justify-start mb-4">
+      <button onclick="toggleLanguage()" class="lang-btn bg-gray-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded">
+        English / العربية
+      </button>
+    </div>
+
+    <h1 class="text-4xl font-bold text-center glow mb-6" id="title">تحليل ومقارنة نماذج الذكاء الاصطناعي</h1>
+    <p class="text-center text-gray-300 mb-4" id="subtitle">دراسة مقارنة شاملة لأذكى النماذج المتاحة اليوم</p>
+
+    <div class="overflow-x-auto">
+      <table class="table-auto w-full border-collapse border border-gray-600" id="comparisonTable">
+        <thead>
+          <tr class="bg-gray-800">
+            <th class="border border-gray-600 p-3">النموذج</th>
+            <th class="border border-gray-600 p-3">المنصة</th>
+            <th class="border border-gray-600 p-3">التقييم</th>
+            <th class="border border-gray-600 p-3">اختبار SWE</th>
+            <th class="border border-gray-600 p-3">تفكير</th>
+            <th class="border border-gray-600 p-3">Regex</th>
+            <th class="border border-gray-600 p-3">منطق ذكي</th>
+            <th class="border border-gray-600 p-3">مخرجات منظمة</th>
+            <th class="border border-gray-600 p-3">السعر الشهري</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr class="hover:bg-gray-700 transition-all">
+            <td>Claude Opus 4</td>
+            <td>Cursor</td>
+            <td class="text-green-400 font-bold">100%</td>
+            <td>79.4%</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>$16.17 + استخدام</td>
+          </tr>
+          <tr class="hover:bg-gray-700">
+            <td>Claude Sonnet 4</td>
+            <td>Cursor</td>
+            <td>95.5%</td>
+            <td>72.7%</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>❌</td>
+            <td>$16.17</td>
+          </tr>
+          <tr class="hover:bg-gray-700">
+            <td>Claude Sonnet 4</td>
+            <td>GitHub Copilot+</td>
+            <td>95%</td>
+            <td>72.7%</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>❌</td>
+            <td>~$32.5</td>
+          </tr>
+          <tr class="hover:bg-gray-700">
+            <td>Claude Sonnet 4</td>
+            <td>Windsurf</td>
+            <td>89%</td>
+            <td>72.7%</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>❌</td>
+            <td>❌</td>
+            <td>مجاني</td>
+          </tr>
+          <tr class="hover:bg-gray-700">
+            <td>o3</td>
+            <td>Cursor</td>
+            <td>76.5%</td>
+            <td>69.1%</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>❌</td>
+            <td>❌</td>
+            <td>~$20</td>
+          </tr>
+          <tr class="hover:bg-gray-700">
+            <td>Claude Sonnet 4</td>
+            <td>Trae</td>
+            <td>76.5%</td>
+            <td>72.7%</td>
+            <td>✅</td>
+            <td>❌</td>
+            <td>✅</td>
+            <td>❌</td>
+            <td>مجاني</td>
+          </tr>
+          <tr class="hover:bg-gray-700">
+            <td>GPT‑4.1</td>
+            <td>Cursor</td>
+            <td class="text-red-300">67.5%</td>
+            <td>~66.0%</td>
+            <td>❌</td>
+            <td>✅</td>
+            <td>❌</td>
+            <td>❌</td>
+            <td>$16.17</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-6 text-center text-sm text-gray-400">© 2025 — تقييم النماذج الذكية بواسطة أبو طلال</p>
+  </div>
+
+  <script>
+    function toggleLanguage() {
+      const isArabic = document.documentElement.lang === 'ar';
+      document.documentElement.lang = isArabic ? 'en' : 'ar';
+      document.documentElement.dir = isArabic ? 'ltr' : 'rtl';
+      document.getElementById('title').textContent = isArabic ? 'AI Models Benchmark & Analysis' : 'تحليل ومقارنة نماذج الذكاء الاصطناعي';
+      document.getElementById('subtitle').textContent = isArabic
+        ? 'An elite comparative study of the smartest models on the market today'
+        : 'دراسة مقارنة شاملة لأذكى النماذج المتاحة اليوم';
+
+      const headers = document.querySelectorAll("thead th");
+      const arabicHeaders = ['النموذج', 'المنصة', 'التقييم', 'اختبار SWE', 'تفكير', 'Regex', 'منطق ذكي', 'مخرجات منظمة', 'السعر الشهري'];
+      const englishHeaders = ['Model', 'Platform', 'Score (%)', 'SWE-bench (%)', 'Thinking', 'Regex', 'Smart Logic', 'Structured', 'Monthly Price'];
+      headers.forEach((th, i) => th.textContent = isArabic ? englishHeaders[i] : arabicHeaders[i]);
+    }
+  </script>
+</body>
+</html>
